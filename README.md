@@ -39,3 +39,5 @@ This comes with a problem, the process doesnt share memory to others so when a u
 - Use another thing to serve static content (html, js, etc.)
 
 NOTE: In common/ dir must be the logic that is shared between components if it doesnt fit at 100% in some component, eg: middlewares, services, etc. This becouse in the component folder should be all the related stufs, middlewares, services, controllers, apis, etc. and if we have a services/ folder it should be confusing and favor the idea of put the services in that folder and that will destroy the "component oriented development"
+
+NOTE 2: The components/user/ is an example of the structure of a single component, its empty, you can delete it

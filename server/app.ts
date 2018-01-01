@@ -1,6 +1,6 @@
 import * as express from 'express';
 import { Request, Response, Application, NextFunction } from 'express';
-import { expressErrorHandler } from './utils/expressErrorHandler';
+import { errorHandlerMdl } from './common/errorHandlerMdl';
 
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -16,6 +16,6 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // here routes
 
-app.use(expressErrorHandler);
+app.use(errorHandlerMdl);
 
 export default app;

@@ -1,8 +1,15 @@
+/**
+ * We doesnt implement the winston's types becouse es too problematic with the new release. Also we
+ * need expose our debug methods (trace, info, etc.) to the other components and the winston's types doenst allow us.
+ * Its easier import the plain js lib and add our interface.
+ */
+
 // TODO: Tests
-// TODO: Use it as a npm package
+// TODO: Built it as a npm package
+declare function require(arg:string): any;
 
-const winston = require('winston');
-
+var winston = require('winston');
+// import * as winston from 'winston';
 interface Logger {
     // Logs methods
     trace(msg: string): void;
@@ -13,13 +20,30 @@ interface Logger {
     fatal(msg: string): void;
 
     // To get other logger stuffs works
-    add(something: any): void;
+    // add(something: any): void;
+}
+
+let transports = [];
+
+// TODO: no se porque no puedo importar Process de node, o porque tnego que hacer un hack para que ande "require" cuando deberia tomarlo de @types/node
+if (process.env.NODE_ENV === 'production') {
+    // Logueara error y fatal
+    transports.push(new (winston.transports.File)({ filename: 'logs/error.log', level: 'error' }));
+} else {
+    // Logueara debug, info, en adelante
+    transports.push(new (winston.transports.Console)({
+        // format: winston.format.simple(),
+        level: 'debug',
+        colorize: true,
+        timestamp: true,
+        prettyPrint: true
+    }));
 }
 
 /**
  * Author: https://gist.github.com/rtgibbons/7354879
  */
-const logger : Logger = winston.createLogger({
+const logger: Logger = new (winston.Logger)({
     colors: {
         trace: 'white',
         debug: 'green',
@@ -36,22 +60,9 @@ const logger : Logger = winston.createLogger({
         warn: 2,
         error: 1,
         fatal: 0
-    }
+    },
+    transports: transports
 });
-
-if (process.env.NODE_ENV === 'production') {
-    // Logueara error y fatal
-    logger.add(new winston.transports.File({ filename: 'logs/error.log', level: 'error' }));
-} else {
-    // Logueara debug, info, en adelante
-    logger.add(new winston.transports.Console({
-        format: winston.format.simple(),
-        level: 'debug',
-        colorize: true,
-        timestamp: true,
-        prettyPrint: true
-    }));
-}
 
 /**
  * Ejemplos de como usar

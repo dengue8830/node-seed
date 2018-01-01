@@ -17,6 +17,7 @@
     "@types/express": "4.11.0",
     "@types/joi": "13.0.3",
     "@types/node": "8.5.2",
+    "@types/winston": "^2.3.7",
     "chai": "4.1.2",
     "chai-http": "3.0.0",
     "nodemon": "1.14.6",
@@ -31,6 +32,6 @@
     "human-readable-ids": "1.0.3",
     "joi": "13.0.2",
     "moment-timezone": "0.5.14",
-    "winston": "2.4.0"
+    "winston": "2.3.1"
   }
 }
