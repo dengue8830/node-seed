@@ -6,7 +6,7 @@
 
 // TODO: Tests
 // TODO: Built it as a npm package
-declare function require(arg:string): any;
+// declare function require(arg:string): any;
 
 var winston = require('winston');
 // import * as winston from 'winston';
