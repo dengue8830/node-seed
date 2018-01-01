@@ -1,3 +1,13 @@
+
+# Created by https://www.gitignore.io/api/node,visualstudiocode
+
+### Quick uploads config. Its better use a 3th party service or save it in another part of your server. But if you will store it in the project you must no track it ###
+public/uploads/
+
+### logs ###
+logs/
+
+### Node ###
 # Logs
 logs
 *.log
@@ -57,3 +67,13 @@ typings/
 # dotenv environment variables file
 .env
 
+
+### VisualStudioCode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.history
+
+# End of https://www.gitignore.io/api/node,visualstudiocode
