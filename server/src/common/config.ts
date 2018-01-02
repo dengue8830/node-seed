@@ -1,14 +1,19 @@
 /**
  * https://www.npmjs.com/package/config
- * otra opcion es
- * https://www.npmjs.com/package/node-config-env
+ *
+ * Hold the config dir in server/config/ otherwise we should copy the config dir to dist folder
  */
 
 import * as config from 'config';
 
 class Config {
+
     get(path: string): any {
         return config.get(path);
+    }
+
+    getJwtSecret(): any {
+        return this.get('jwtSecret');
     }
 }
 

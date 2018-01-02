@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Node server with clean installation, it means, no bd or client config, only apis and related stuffs",
   "scripts": {
-    "start": "npm run watch", 
+    "start": "npm run watch",
     "watch": "nodemon -e ts  --exec \"npm run compile-ts-run-server\"",
-    "compile-ts-run-server": "tsc && node ./dist/server.js",
+    "compile-ts-run-server": "tsc && node ./dist/server.js NODE_ENV=development",
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build": "npm run build-ts && npm run tslint",
     "build-ts": "tsc",
@@ -18,7 +18,9 @@
     "@types/chai-http": "3.0.3",
     "@types/config": "0.0.33",
     "@types/express": "4.11.0",
+    "@types/express-jwt": "0.0.38",
     "@types/joi": "13.0.3",
+    "@types/jsonwebtoken": "^7.2.5",
     "@types/node": "8.5.2",
     "@types/winston": "^2.3.7",
     "chai": "4.1.2",
@@ -32,9 +34,11 @@
     "body-parser": "1.18.2",
     "config": "1.29.0",
     "express": "4.16.2",
+    "express-jwt": "^5.3.0",
     "helmet": "3.9.0",
     "human-readable-ids": "1.0.3",
     "joi": "13.0.2",
+    "jsonwebtoken": "^8.1.0",
     "moment-timezone": "0.5.14",
     "winston": "2.3.1"
   }
