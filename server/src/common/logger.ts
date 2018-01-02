@@ -8,7 +8,7 @@
 // TODO: Built it as a npm package
 // declare function require(arg:string): any;
 
-var winston = require('winston');
+const winston = require('winston');
 // import * as winston from 'winston';
 interface Logger {
     // Logs methods
@@ -23,7 +23,7 @@ interface Logger {
     // add(something: any): void;
 }
 
-let transports = [];
+const transports = [];
 
 // TODO: no se porque no puedo importar Process de node, o porque tnego que hacer un hack para que ande "require" cuando deberia tomarlo de @types/node
 if (process.env.NODE_ENV === 'production') {

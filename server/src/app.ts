@@ -5,7 +5,7 @@ import { errorHandlerMdl } from './common/errorHandlerMdl';
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
-const app:Application = express();
+const app: Application = express();
 
 app.use(helmet({
     hsts: false // until we use https

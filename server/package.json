@@ -2,11 +2,14 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Node server with clean installation, it means, no bd or client config, only apis and related stuffs",
-  "main": "server.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "./node_modules/.bin/ts-node ./server.ts",
-    "watch": "./node_modules/.bin/nodemon -V -w . --ext \".ts\" --exec \"npm run start\""
+    "start": "npm run watch", 
+    "watch": "nodemon -e ts  --exec \"npm run compile-ts-run-server\"",
+    "compile-ts-run-server": "tsc && node ./dist/server.js",
+    "tslint": "tslint -c tslint.json -p tsconfig.json",
+    "build": "npm run build-ts && npm run tslint",
+    "build-ts": "tsc",
+    "test": "mocha ./test/index-test.js --timeout 20000 --bail"
   },
   "author": "David Rearte",
   "license": "MIT",
@@ -20,8 +23,9 @@
     "@types/winston": "^2.3.7",
     "chai": "4.1.2",
     "chai-http": "3.0.0",
+    "concurrently": "3.5.1",
     "nodemon": "1.14.6",
-    "ts-node": "4.1.0",
+    "tslint": "5.8.0",
     "typescript": "2.6.2"
   },
   "dependencies": {

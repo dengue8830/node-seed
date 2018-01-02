@@ -1,6 +1,6 @@
 /**
  * https://www.npmjs.com/package/config
- * otra opcion es 
+ * otra opcion es
  * https://www.npmjs.com/package/node-config-env
  */
 
