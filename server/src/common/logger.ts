@@ -25,12 +25,12 @@ interface Logger {
 
 const transports = [];
 
-// TODO: no se porque no puedo importar Process de node, o porque tnego que hacer un hack para que ande "require" cuando deberia tomarlo de @types/node
+// TODO: no se porque tnego que hacer un hack para que ande "require" cuando deberia tomarlo de @types/node
 if (process.env.NODE_ENV === 'production') {
-    // Logueara error y fatal
+    // Logs error and fatal
     transports.push(new (winston.transports.File)({ filename: 'logs/error.log', level: 'error' }));
 } else {
-    // Logueara debug, info, en adelante
+    // Logs debug, info, and forward
     transports.push(new (winston.transports.Console)({
         // format: winston.format.simple(),
         level: 'debug',
@@ -65,7 +65,7 @@ const logger: Logger = new (winston.Logger)({
 });
 
 /**
- * Ejemplos de como usar
+ * Examples
  */
 
 // logger.log('trace', 'testingx');
