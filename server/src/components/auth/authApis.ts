@@ -14,7 +14,7 @@ const router = Router();
  * Changes this with your login logic.
  */
 router.get('/api/v1/token', (req: Request, res: Response, next: NextFunction) => {
-    const token = jwt.sign({ datosSesion: 'bar' }, config.getJwtSecret()); // , { expiresIn: '30s' }
+    const token = jwt.sign({ someData: 'foobar' }, config.getJwtSecret()); // , { expiresIn: '30s' }
     res.json({ token: token });
 });
 
@@ -24,7 +24,6 @@ router.get('/api/v1/token', (req: Request, res: Response, next: NextFunction) =>
  */
 router.get('/api/v1/protected', authService.getBasicAuthMdl() , (req: Request, res: Response, next: NextFunction) => {
     console.log(req.user);
-    // req.user.datosSesion = 'foo';
     res.json({ status: 'listorti' });
 });
 
