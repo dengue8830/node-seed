@@ -4,7 +4,7 @@
 
 import { Request, Response, Application, NextFunction, Router } from 'express';
 import * as jwt from 'jsonwebtoken';
-import * as ejwt from 'express-jwt';
+import authService from '../../common/authService';
 import config from '../../common/config';
 
 const router = Router();
@@ -22,9 +22,9 @@ router.get('/api/v1/token', (req: Request, res: Response, next: NextFunction) =>
  * An example of a protected api to test the token generator api.
  * Delete this for your project
  */
-router.get('/api/v1/protected', ejwt({ secret: config.getJwtSecret() }), (req: Request, res: Response, next: NextFunction) => {
+router.get('/api/v1/protected', authService.getBasicAuthMdl() , (req: Request, res: Response, next: NextFunction) => {
     console.log(req.user);
-    req.user.datosSesion = 'foo';
+    // req.user.datosSesion = 'foo';
     res.json({ status: 'listorti' });
 });
 
