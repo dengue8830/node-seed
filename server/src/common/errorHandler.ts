@@ -7,8 +7,10 @@ const hri = require('human-readable-ids').hri;
 class ErrorHandler {
     /**
      * Prints the error depending on the log level and do extra
-     * operations before close the error handle cicle.
-     * Generates a human-friendly error code to track latter on logs.
+     * operations before close the error handle cycle.
+     *
+     * Generates a human-friendly error code to track it latter on logs.
+     * We don't want the clients seeing a db or logic error on a specific file and line right?
      *
      * @param error Any kind of error.
      * @returns Generated human-friendly error code.

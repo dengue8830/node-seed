@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import config from '../common/config';
+import config from '../../common/config';
 import * as passport from 'passport';
 import { Strategy, ExtractJwt, VerifiedCallback } from 'passport-jwt';
 import { RequestHandlerParams } from 'express-serve-static-core';
