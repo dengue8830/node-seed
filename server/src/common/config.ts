@@ -1,3 +1,5 @@
+import * as config from 'config';
+
 /**
  * Wraps the config logic. Someday we may want to change the lib.
  *
@@ -11,12 +13,15 @@
  * we need it to be copied to dist folder.
  * Otherwise we should copy the config dir to dist folder
  */
-import * as config from 'config';
-
 class Config {
 
-    get(path: string): any {
-        return config.get(path);
+    /**
+     * Gets the value corresponding to the given key.
+     * It's preferable to write a custom method.
+     * @param key String to get the de value
+     */
+    get(key: string): any {
+        return config.get(key);
     }
 
     getJwtSecret(): any {

@@ -23,7 +23,7 @@ router.get('/api/v1/token', (req: Request, res: Response, next: NextFunction) =>
  * Delete this for your project
  */
 router.get('/api/v1/protected', authService.getBasicAuthMdl() , (req: Request, res: Response, next: NextFunction) => {
-    console.log(req.user);
+    // The token data is in req.user -> console.log(req.user);
     res.json({ status: 'listorti' });
 });
 

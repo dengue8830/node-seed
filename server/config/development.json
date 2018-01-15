@@ -1,0 +1,8 @@
+{
+    "uploads": {
+        "folder": "public/uploads"
+    },
+    "jwtSecret": "replaceThisWithRealSecretOnProductionJsonConfig",
+    "emailServerUser": "aDevelopmentMailAccount",
+    "emailServerPass": "thePass"
+}
