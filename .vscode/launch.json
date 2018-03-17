@@ -8,13 +8,13 @@
             "type": "node",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceRoot}/server/src/server.ts",
-            "outFiles": [
-                "${workspaceFolder}/server/dist/server.js"
-            ],
+            // build task defined in tasks.json (hack to execute npm run build)
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/server/dist/server.js",
             "env": {
                 "NODE_ENV": "development"
             },
+            "cwd": "${workspaceFolder}/server/",
             "sourceMaps": true
         },
         {
@@ -23,5 +23,21 @@
             "name": "Attach",
             "port": 9229
         },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "test-current-file",
+            "preLaunchTask": "build",
+            "program": "${workspaceRoot}/server/node_modules/mocha/bin/_mocha",
+            // Search for the file that has the focus at the moment of execute this task (and changes the extension to js in order to
+            // the debugger works)
+            // Max timeout and colors
+            "args": ["${workspaceFolder}/server/dist/**/${fileBasenameNoExtension}.js", "--colors", "--timeout", "999999", "--bail", "--exit"],
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "cwd": "${workspaceFolder}/server/",
+            "protocol": "inspector"
+        }
     ]
 }
