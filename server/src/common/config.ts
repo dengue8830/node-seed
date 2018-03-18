@@ -1,5 +1,5 @@
 import * as config from 'config';
-
+import * as Sequelize from 'sequelize';
 /**
  * Wraps the config logic. Someday we may want to change the lib.
  *
@@ -34,6 +34,14 @@ class Config {
 
     getEmailServerPass(): string {
         return this.get('emailServerPass');
+    }
+
+    getPkDefinition(): { type: any, defaultValue: any, primaryKey: boolean } {
+        return {
+            type: Sequelize.UUID,
+            defaultValue: Sequelize.UUIDV1,
+            primaryKey: true
+        };
     }
 }
 

@@ -30,6 +30,7 @@
     "@types/nodemailer-smtp-transport": "^2.7.4",
     "@types/passport": "0.4.2",
     "@types/passport-jwt": "3.0.0",
+    "@types/sequelize": "github:types/sequelize",
     "@types/winston": "2.3.7",
     "chai": "4.1.2",
     "chai-http": "3.0.0",
@@ -51,9 +52,11 @@
     "joi": "13.0.2",
     "jsonwebtoken": "8.1.0",
     "moment-timezone": "0.5.14",
+    "mysql2": "^1.5.2",
     "nodemailer": "4.4.1",
     "passport": "0.4.0",
     "passport-jwt": "3.0.1",
+    "sequelize": "^4.37.1",
     "winston": "2.3.1"
   }
 }
