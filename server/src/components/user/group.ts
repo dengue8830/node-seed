@@ -38,7 +38,7 @@ export class Group extends Model {
 
 // attach all the metadata to the model
 // instead of this, you could also use decorators
-Group.init({ id: config.getPkDefinition(), name: DataTypes.STRING }, { sequelize, tableName: 'Gruposx' });
+Group.init({ id: config.getPkDefinition(), name: DataTypes.STRING }, { sequelize });
 
 // associate
 // it is important to import _after_ the model above is already exported so the circular reference works.
