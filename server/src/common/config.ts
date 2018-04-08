@@ -36,6 +36,10 @@ class Config {
         return this.get('emailServerPass');
     }
 
+    getExampleLockFileName(): string {
+        return this.get('exampleLockfileName');
+    }
+
     getPkDefinition(): { type: any, defaultValue: any, primaryKey: boolean } {
         return {
             type: Sequelize.UUID,

@@ -3,6 +3,8 @@ import { Request, Response, Application, NextFunction } from 'express';
 import { errorHandlerMdl } from './common/errorHandlerMdl';
 import apisRoutesLoader from './common/apisRoutesLoader';
 import authService from './components/auth/authService';
+import { LockFile } from './common/utils/lockfile';
+import logger from './common/logger';
 
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -34,10 +36,10 @@ export default class App {
         // here routes
         apisRoutesLoader(this.app);
 
-        // promises.push(LockFile.borrarTodosLocksFiles()
-        //     .catch(error => {
-        //         console.error('error al borrar lock file', error);
-        //     }));
+        promises.push(LockFile.deleteAllLockfiles()
+            .catch(error => {
+                logger.error(`error deleting a lockfile ${error}`);
+            }));
 
         this.app.use(errorHandlerMdl);
         return Promise.all(promises);

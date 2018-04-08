@@ -4,5 +4,6 @@
     },
     "jwtSecret": "replaceThisWithRealSecretOnProductionJsonConfig",
     "emailServerUser": "aDevelopmentMailAccount",
-    "emailServerPass": "thePass"
+    "emailServerPass": "thePass",
+    "exampleLockfileName": "exampleLockfileName"
 }
