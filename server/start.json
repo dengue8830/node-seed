@@ -1,0 +1,13 @@
+{
+    "apps": [
+        {
+            "name": "node-seed",
+            "script": "./dist/server.js",
+            "env": {
+                "NODE_ENV": "development"
+            },
+            "instances": "3",
+            "exec_mode": "cluster"
+        }
+    ]
+}
