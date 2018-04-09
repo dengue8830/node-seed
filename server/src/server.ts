@@ -1,6 +1,10 @@
 import App from './app';
 import logger from './common/logger';
 
+// Como hacer para tener varias instancias de app y socket con pm2?
+// https://github.com/Unitech/pm2/issues/637
+// https://github.com/socketio/socket.io/issues/1942#issuecomment-82352072
+// https://github.com/Unitech/PM2/issues/1510
 logger.info(`env ${process.env.NODE_ENV}`);
 const app = new App();
 const port = process.env.NODE_ENV === 'production' ? 8080 : 8080;
