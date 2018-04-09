@@ -5,6 +5,8 @@ import apisRoutesLoader from './common/apisRoutesLoader';
 import authService from './components/auth/authService';
 import { LockFile } from './common/utils/lockfile';
 import logger from './common/logger';
+import socket from './components/chatt/socket';
+import { Server } from 'http';
 
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
@@ -12,10 +14,14 @@ const helmet = require('helmet');
 export default class App {
     private app: Application;
 
-    async init() {
+    constructor() {
+        this.app = express();
+    }
+
+    async init(server?: Server) {
         // An array of promises to do the async work
         const promises: Promise<any>[] = [];
-        this.app = express();
+        socket.init(server);
         // Enable CORS
         // this.app.use(function (req, res, next) {
         //     res.header('Access-Control-Allow-Origin', '*'); // specific domains are recomended

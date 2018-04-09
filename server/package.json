@@ -44,21 +44,23 @@
     "typescript": "2.6.2"
   },
   "dependencies": {
+    "@types/socket.io": "^1.4.33",
     "body-parser": "1.18.2",
     "config": "1.29.0",
     "ejs": "2.5.7",
     "express": "4.16.2",
     "helmet": "3.9.0",
-    "lockfile": "1.0.3",
     "human-readable-ids": "1.0.3",
     "joi": "13.0.2",
     "jsonwebtoken": "8.1.0",
+    "lockfile": "1.0.3",
     "moment-timezone": "0.5.14",
     "mysql2": "1.5.2",
     "nodemailer": "4.4.1",
     "passport": "0.4.0",
     "passport-jwt": "3.0.1",
     "sequelize": "4.37.1",
+    "socket.io": "^2.1.0",
     "winston": "2.3.1"
   }
 }

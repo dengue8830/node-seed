@@ -1,6 +1,7 @@
 import { Application } from 'express';
 import authApis from '../components/auth/authApis';
 import userApis from '../components/user/userApis';
+import chatApis from '../components/chatt/chatApis';
 
 /**
  * Loads all the apis
@@ -8,5 +9,6 @@ import userApis from '../components/user/userApis';
 export default (app: Application): void => {
     app.use(authApis);
     app.use(userApis);
+    app.use(chatApis);
     // ... other apis
 };
