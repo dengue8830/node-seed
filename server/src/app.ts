@@ -21,8 +21,9 @@ export default class App {
     async init(server?: Server) {
         // An array of promises to do the async work
         const promises: Promise<any>[] = [];
+        // Remove this line and his import if you won't use sockets
         socket.init(server);
-        // Enable CORS
+        // Uncomment this lines to enable CORS
         // this.app.use(function (req, res, next) {
         //     res.header('Access-Control-Allow-Origin', '*'); // specific domains are recomended
         //     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, authorization');
@@ -39,9 +40,10 @@ export default class App {
 
         authService.init(this.app);
 
-        // here routes
+        // Routes inside this caller
         apisRoutesLoader(this.app);
 
+        // Remove all the lockfiles to ensure a clean app's startup
         promises.push(LockFile.deleteAllLockfiles()
             .catch(error => {
                 logger.error(`error deleting a lockfile ${error}`);

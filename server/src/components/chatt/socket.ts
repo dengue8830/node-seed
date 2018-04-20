@@ -2,8 +2,19 @@ import * as socketio from 'socket.io';
 import { Server } from 'http';
 import logger from '../../common/logger';
 import server from '../../server';
-// var MemcachedStore = require('socket.io-store-memcached');
 
+/**
+ * Represents a socket server instance.
+ * This class wraps the final technology you will use to implements
+ * sockets, eg.: socket-io
+ * 
+ * We export an instance and not the class becouse in that way we can do the import
+ * and get a working and initialized instance everywhere in the app, eg.: chatApis.ts
+ * in other way we must store the reference and pass it to each part of the app that require that.
+ * 
+ * TODO: falta resolver el problema mencionado en server.ts sobre instancias de app,
+ * socket y pm2.
+ */
 class Socket {
     private io: SocketIO.Server;
 
