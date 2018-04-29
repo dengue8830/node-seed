@@ -13,7 +13,13 @@
  * import { SomeClass } from 'exampleModule';
  */
 
+// just
+declare module 'exampleModule';
+
+// or more specifically
 declare module 'exampleModule' {
     export class SomeClass { }
     export interface SomeInterface { }
 }
+
+// TODO: how to create interfaces for the classes on the lib
