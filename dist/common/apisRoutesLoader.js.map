@@ -1,1 +1,0 @@
-{"version":3,"file":"apisRoutesLoader.js","sourceRoot":"","sources":["../../src/common/apisRoutesLoader.ts"],"names":[],"mappings":";;AACA,0DAAmD;AACnD,0DAAmD;AACnD,2DAAoD;AAEpD;;GAEG;AACH,kBAAe,CAAC,GAAgB,EAAQ,EAAE;IACtC,GAAG,CAAC,GAAG,CAAC,kBAAQ,CAAC,CAAC;IAClB,GAAG,CAAC,GAAG,CAAC,kBAAQ,CAAC,CAAC;IAClB,GAAG,CAAC,GAAG,CAAC,kBAAQ,CAAC,CAAC;IAClB,iBAAiB;AACrB,CAAC,CAAC"}
