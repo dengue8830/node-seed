@@ -17,7 +17,9 @@
       "instance_var": "INSTANCE_ID",
       "source_map_support": true,
       "max_restarts": 1,
-      "min_uptime": "3s"
+      "min_uptime": "3s",
+      "error_file": "./logs/out.log",
+      "out_file": "./logs/out.log"
     }
   ]
 }
