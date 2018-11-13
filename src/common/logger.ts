@@ -5,6 +5,7 @@
  */
 
 import * as winston from 'winston';
+import * as moment from 'moment';
 
 const customLevels = {
   levels: {
@@ -27,6 +28,16 @@ const customLevels = {
 
 const isProductionEnv = process.env.NODE_ENV === 'production';
 
+// const withColorsAndTime = winston.format.combine(
+//   winston.format.colorize(),
+//   winston.format.timestamp(),
+//   winston.format.printf((info) => {
+//     const { timestamp, level, message, ...args } = info;
+//     const ts = moment(timestamp).local().format('HH:MM:ss');
+//     return `${ts} ${level}: ${message} ${Object.keys(args).length ? JSON.stringify(args, null, 2) : ''}`;
+//   }),
+// );
+
 class Logger {
   private logger: winston.Logger;
 
@@ -35,15 +46,13 @@ class Logger {
     const prodTransport = new (winston.transports.File)({ filename: 'logs/error.log', level: 'error' });
     // Logs debug, info, and forward
     const devTransport = new winston.transports.Console({
-      format: winston.format.simple(),
-      level: 'debug',
-      // colorize: true,
-      // timestamp: true,
-      // prettyPrint: true
+      format: winston.format.combine(winston.format.colorize(), winston.format.simple()),
+      // format: withColorsAndTime,
+      level: 'trace'
     });
     this.logger = winston.createLogger({
       level: isProductionEnv ? 'error' : 'debug',
-      // we redefine security leves as mentioned
+      // We redefine security leves as mentioned
       levels: customLevels.levels,
       transports: [isProductionEnv ? prodTransport : devTransport]
     });
@@ -51,8 +60,7 @@ class Logger {
   }
 
   trace(msg: string) {
-    const lggr = this.logger as any;
-    lggr.trace(msg);
+    this.logger.log('trace', msg);
   }
 
   debug(msg: string) {
@@ -72,8 +80,7 @@ class Logger {
   }
 
   fatal(msg: string) {
-    const lggr = this.logger as any;
-    lggr.fatal(msg);
+    this.logger.log('fatal', msg);
   }
 }
 
