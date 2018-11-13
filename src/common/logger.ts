@@ -1,9 +1,3 @@
-/**
- * We doesnt implement the winston's types becouse es too problematic with the new release. Also we
- * need expose our debug methods (trace, info, etc.) to the other components and the winston's types doenst allow us.
- * Its easier import the plain js lib and add our interface.
- */
-
 import * as winston from 'winston';
 import * as moment from 'moment';
 
@@ -50,11 +44,23 @@ const formatter = winston.format.combine(
   }),
 );
 
+/**
+ * This class Takes care of the logs on the app.
+ *
+ * For both prod and dev environments we use Console transport because we use
+ * pm2 for production and it handles the console logs quite fine. If you are not using pm2
+ * you can use a File transport for production.
+ *
+ * Our pm2 start.json is configured with a single out.log file for all the log types in order to get
+ * a simpler configuration. If you need a separate file for errors for pm2, edit start.json and set a
+ * different file name for error, later edit error method of this class and use the simple console.error,
+ * pm2 will handle it and print it in the error file described in start.json.
+ */
 class Logger {
   private logger: winston.Logger;
 
   constructor() {
-    // Use this config for separate transport for prod and dev if you are not using pm2. It handles the console.logs and put them in the corresponding file
+    // Use this config for separate transport for prod if you are not using pm2
     // const prodTransport = new winston.transports.File({ filename: 'logs/error.log', level: 'error' });
     const transport = new winston.transports.Console({
       // format: winston.format.combine(winston.format.colorize(), winston.format.simple()),
