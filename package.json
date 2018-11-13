@@ -9,7 +9,7 @@
     "tslint": "tslint -c tslint.json -p tsconfig.json",
     "build": "npm run tslint && npm run build-ts && npm run build-no-ts",
     "build-ts": "tsc",
-    "test": "npm run build && mocha ./dist/**/*.test.js --timeout 20000 --bail --exit",
+    "test": "npm run build && NODE_ENV=development mocha \"./dist/**/*.test.js\" --timeout 40000 --bail --exit",
     "build-docs": "./node_modules/.bin/typedoc --out './doc' './' --ignoreCompilerErrors",
     "build-no-ts": "copyfiles -e './src/**/*.ts' --up 1  './src/**/*' ./dist/"
   },
