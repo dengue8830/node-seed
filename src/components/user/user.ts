@@ -13,10 +13,6 @@ import sequelize from '../../common/connection';
 import config from '../../common/config';
 
 export class User extends Model {
-    public static associations: {
-        group: BelongsTo;
-    };
-
     public id: string;
     public username: string;
     public email: string;
@@ -51,9 +47,9 @@ User.afterFind((users, options: FindOptions) => {
     console.log('found');
 });
 
-User.beforeCreate('increment_number', (user: User, options: CreateOptions) => {
+User.beforeCreate('increment_number', async (user: User, options: CreateOptions) => {
     console.log('incrementando');
-    user.increment({ nro: 1 });
+    await user.increment({ nro: 1 });
 });
 
 User.afterDestroy('user_destroy', (user: User) => {

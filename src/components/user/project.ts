@@ -1,8 +1,4 @@
 import {
-    BelongsTo,
-    BelongsToCreateAssociationMixin,
-    BelongsToGetAssociationMixin,
-    BelongsToSetAssociationMixin,
     DataTypes,
     FindOptions,
     Model,

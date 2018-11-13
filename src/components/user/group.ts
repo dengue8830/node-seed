@@ -16,10 +16,6 @@ import sequelize from '../../common/connection';
 import config from '../../common/config';
 
 export class Group extends Model {
-    public static associations: {
-        users: HasMany;
-    };
-
     public id: string;
     public name: string;
 
