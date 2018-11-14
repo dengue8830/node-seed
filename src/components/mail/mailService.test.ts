@@ -1,10 +1,4 @@
-import 'mocha';
-import * as chai from 'chai';
 import mailService from './mailService';
-// import ChaiHttp = require('chai-http');
-// import server from '../../server';
-const expect = chai.expect;
-// chai.use(ChaiHttp);
 
 /**
  * We skip this tests because we don't have an mail config in config/development.json.
