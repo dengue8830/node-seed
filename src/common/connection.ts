@@ -1,5 +1,6 @@
 import { Sequelize } from 'sequelize';
 import { logger } from './logger';
+import * as sqlFormatter from 'sql-formatter';
 
 const sequelize = new Sequelize({
   operatorsAliases: false,
@@ -9,7 +10,7 @@ const sequelize = new Sequelize({
   username: 'nodeseed',
   password: 'nodeseed',
   logging: (query: string) => {
-    logger.trace(query);
+    logger.trace(sqlFormatter.format(query));
   },
   pool: {
     max: 5,
