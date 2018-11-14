@@ -10,7 +10,7 @@ const port = process.env.NODE_ENV === 'production' ? 8080 : 8080;
 // const port = 808 + process.env.NODE_APP_INSTANCE;
 // Splitting this from app.ts we can eg: create multiples servers on diferent ports with the same app, or something else
 const server = app.getExpressApp().listen(port, () => {
-  logger.info(`app server running on port ${port} int ${process.env.NODE_ENV} env`);
+  logger.info(`app server running on port [${port}] in [${process.env.NODE_ENV}] env`);
   app.init(server);
 });
 

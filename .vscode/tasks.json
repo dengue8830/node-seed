@@ -8,7 +8,7 @@
         {
             "label": "build",
             "type": "shell",
-            "command": "npm --prefix ./server/ run build"
+            "command": "npm run build"
         }
     ]
 }

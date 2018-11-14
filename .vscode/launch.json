@@ -10,11 +10,11 @@
       "name": "Debug",
       // build task defined in tasks.json (hack to execute npm run build)
       "preLaunchTask": "build",
-      "program": "${workspaceRoot}/server/dist/server.js",
+      "program": "${workspaceRoot}/dist/server.js",
       "env": {
         "NODE_ENV": "development"
       },
-      "cwd": "${workspaceFolder}/server/",
+      "cwd": "${workspaceFolder}/",
       "sourceMaps": true
     },
     {

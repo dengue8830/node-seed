@@ -1,7 +1,23 @@
 # node-seed
 NodeJS project seed with best practices based on https://github.com/i0natan/nodebestpractices + preferred tools and configs
 
-Resume of the features in this project:
+# Run app in dev mode
+npm start
+
+# Deploy
+npm run deploy
+
+# Run all tests
+# We use ts-jest for quick re-run in order to get a more friendly test environment and get more tests written
+npm test
+
+# Debug app in vscode
+open debug left panel > select debug > press run button
+
+# Debug a single test file in vscode. It also works for debug server code
+open the target file > open debug left panel > select test current file > run button
+
+# Resume of the features in this project:
 
 (Read app.ts to see, remove or customize the features)
 
@@ -17,7 +33,7 @@ Resume of the features in this project:
 - Implementation of a test environment
 - Implementation of a component development oriented's structure
 
-Resume of the best practices:
+# Resume of the best practices:
 
 - Component oriented development (user > user.ts, userApis.ts, user.test.ts, etc). Reausable, testeable, readable
 - Separate layers, eg: not pass express object to services, use custom object. Testeable, easy to change web server. This applies to ORM, Web servers, libs, etc.

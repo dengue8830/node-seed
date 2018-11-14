@@ -14,17 +14,17 @@ const router = Router();
  * Changes this with your login logic.
  */
 router.get('/api/v1/token', (req: Request, res: Response, next: NextFunction) => {
-    const token = jwt.sign({ someData: 'foobar' }, config.getJwtSecret()); // , { expiresIn: '30s' }
-    res.json({ token: token });
+  const token = jwt.sign({ someData: 'foobar' }, config.getJwtSecret()); // , { expiresIn: '30s' }
+  res.json({ token: token });
 });
 
 /**
  * An example of a protected api to test the token generator api.
  * Delete this for your project
  */
-router.get('/api/v1/protected', authService.getBasicAuthMdl() , (req: Request, res: Response, next: NextFunction) => {
-    // The token data is in req.user -> console.log(req.user);
-    res.json({ status: 'listorti' });
+router.get('/api/v1/protected', authService.getBasicAuthMdl(), (req: Request, res: Response, next: NextFunction) => {
+  // The token data is in req.user -> console.log(req.user);
+  res.json({ status: 'listorti' });
 });
 
 export default router;
