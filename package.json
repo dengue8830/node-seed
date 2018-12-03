@@ -1,7 +1,7 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "description": "Node server with clean installation, it means, no bd or client config, only apis and related stuffs",
+  "description": "Node server with the basics to get a functional app",
   "scripts": {
     "start": "npm run watch",
     "watch": "nodemon -e ts  --exec \"npm run compile-ts-run-server\"",
