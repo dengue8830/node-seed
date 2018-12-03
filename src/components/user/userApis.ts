@@ -3,10 +3,10 @@
  */
 
 import { Request, Response, NextFunction, Router } from 'express';
-import { User } from './user';
+import { User } from './user.model';
 import sequelize from '../../common/connection';
 import { Op } from 'sequelize';
-import { Group } from './group';
+import { Group } from '../group/group.model';
 import { logger } from '../../common/logger';
 
 const router = Router();

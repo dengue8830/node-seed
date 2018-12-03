@@ -58,5 +58,5 @@ User.afterDestroy('user_destroy', (user: User) => {
 
 // associate
 // it is important to import _after_ the model above is already exported so the circular reference works.
-import { Group } from './group';
+import { Group } from '../group/group.model';
 User.belongsTo(Group, { as: 'group', foreignKey: 'groupId' });

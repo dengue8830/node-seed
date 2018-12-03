@@ -38,5 +38,5 @@ Group.init({ id: config.getPkDefinition(), name: DataTypes.STRING }, { sequelize
 
 // associate
 // it is important to import _after_ the model above is already exported so the circular reference works.
-import { User } from './user';
+import { User } from '../user/user.model';
 Group.hasMany(User, { as: 'users', foreignKey: 'groupId' });
