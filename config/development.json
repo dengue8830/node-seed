@@ -5,5 +5,10 @@
     "jwtSecret": "replaceThisWithRealSecretOnProductionJsonConfig",
     "emailServerUser": "aDevelopmentMailAccount",
     "emailServerPass": "thePass",
-    "exampleLockfileName": "exampleLockfileName"
+    "exampleLockfileName": "exampleLockfileName",
+    "bd": {
+      "database": "nodeseed",
+      "username": "nodeseed",
+      "password": "nodeseed"
+    }
 }

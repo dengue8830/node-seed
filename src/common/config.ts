@@ -47,6 +47,10 @@ class Config {
             primaryKey: true
         };
     }
+
+    getBd(): { database: string, username: string, password: string } {
+      return this.get('bd');
+    }
 }
 
 export default new Config();
