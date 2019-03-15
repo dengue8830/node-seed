@@ -6,6 +6,7 @@
     "emailServerUser": "aDevelopmentMailAccount",
     "emailServerPass": "thePass",
     "exampleLockfileName": "exampleLockfileName",
+    "imageServer": "http://192.168.0.105:8080",
     "bd": {
       "database": "nodeseed",
       "username": "nodeseed",

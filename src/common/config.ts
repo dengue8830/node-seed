@@ -51,6 +51,18 @@ class Config {
     getBd(): { database: string, username: string, password: string } {
       return this.get('bd');
     }
+
+    getImageServer(): string {
+      return this.get('imageServer');
+    }
+
+    getUploadFolder(): string {
+      return this.get('uploads.folder');
+    }
+
+    getFullUploadPath(): string {
+      return this.getImageServer() + '/' + this.getUploadFolder();
+    }
 }
 
 export default new Config();
