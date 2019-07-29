@@ -1,4 +1,4 @@
-import mailService from './mailService';
+import mailService from './mail.service';
 
 /**
  * We skip this tests because we don't have an mail config in config/development.json.

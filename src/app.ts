@@ -1,7 +1,7 @@
 import * as express from 'express';
 import { Request, Response, Application, NextFunction } from 'express';
-import { errorHandlerMdl } from './common/error.handler.mdl';
-import apisRoutesLoader from './common/apisRoutesLoader';
+import { errorHandlerMdl } from './common/error-handler.mdl';
+import apisRoutesLoader from './common/apis-routes-loader';
 import authService from './components/auth/auth.service';
 import { LockFile } from './common/utils/lockfile';
 import { logger } from './common/logger';
