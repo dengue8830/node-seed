@@ -26,6 +26,8 @@ open the target file > open debug left panel > select test current file > run bu
 
 (Read app.ts to see, remove or customize the features)
 
+- import json
+`import * as myjson from './my.json';`
 - Auth with jwt and passport
 - Conection with socket-io
 - Implementation of a working mail service
