@@ -8,24 +8,24 @@ import mailService from './mailService';
  */
 describe.skip('mail', () => {
 
-    describe('basics mails', () => {
+  describe('basics mails', () => {
 
-        it('send a simple mail', async () => {
-            return await mailService.sendMail({
-                to: 'dengue8830@gmail.com',
-                text: 'this is a simple mail'
-            });
-        });
-
-        it('send a template mail', async () => {
-            return await mailService.sendTemplateMail({
-                mailOptions: {
-                    to: 'dengue8830@gmail.com'
-                },
-                templateParams: { name: 'david' },
-                templatePath: __dirname + '/templates/welcome.ejs'
-            });
-        });
+    it('send a simple mail', async () => {
+      return await mailService.sendMail({
+        to: 'dengue8830@gmail.com',
+        text: 'this is a simple mail'
+      });
     });
+
+    it('send a template mail', async () => {
+      return await mailService.sendTemplateMail({
+        mailOptions: {
+          to: 'dengue8830@gmail.com'
+        },
+        templateParams: { name: 'david' },
+        templatePath: __dirname + '/templates/welcome.ejs'
+      });
+    });
+  });
 
 });

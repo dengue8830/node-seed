@@ -1,35 +1,35 @@
 import {
-    DataTypes,
-    HasMany,
-    HasManyAddAssociationMixin,
-    HasManyAddAssociationsMixin,
-    HasManyCountAssociationsMixin,
-    HasManyCreateAssociationMixin,
-    HasManyGetAssociationsMixin,
-    HasManyHasAssociationMixin,
-    HasManyRemoveAssociationMixin,
-    HasManyRemoveAssociationsMixin,
-    HasManySetAssociationsMixin,
-    Model,
+  DataTypes,
+  HasMany,
+  HasManyAddAssociationMixin,
+  HasManyAddAssociationsMixin,
+  HasManyCountAssociationsMixin,
+  HasManyCreateAssociationMixin,
+  HasManyGetAssociationsMixin,
+  HasManyHasAssociationMixin,
+  HasManyRemoveAssociationMixin,
+  HasManyRemoveAssociationsMixin,
+  HasManySetAssociationsMixin,
+  Model,
 } from 'sequelize';
 import sequelize from '../../common/connection';
 import config from '../../common/config';
 
 export class Group extends Model {
-    public id: string;
-    public name: string;
+  public id: string;
+  public name: string;
 
-    // mixins for association (optional)
-    public users: User[];
-    public getUsers: HasManyGetAssociationsMixin<User>;
-    public setUsers: HasManySetAssociationsMixin<User, string>;
-    public addUser: HasManyAddAssociationMixin<User, string>;
-    public addUsers: HasManyAddAssociationsMixin<User, string>;
-    public createUser: HasManyCreateAssociationMixin<string>;
-    public countUsers: HasManyCountAssociationsMixin;
-    public hasUser: HasManyHasAssociationMixin<User, string>;
-    public removeUser: HasManyRemoveAssociationMixin<User, string>;
-    public removeUsers: HasManyRemoveAssociationsMixin<User, string>;
+  // mixins for association (optional)
+  public users: User[];
+  public getUsers: HasManyGetAssociationsMixin<User>;
+  public setUsers: HasManySetAssociationsMixin<User, string>;
+  public addUser: HasManyAddAssociationMixin<User, string>;
+  public addUsers: HasManyAddAssociationsMixin<User, string>;
+  public createUser: HasManyCreateAssociationMixin<string>;
+  public countUsers: HasManyCountAssociationsMixin;
+  public hasUser: HasManyHasAssociationMixin<User, string>;
+  public removeUser: HasManyRemoveAssociationMixin<User, string>;
+  public removeUsers: HasManyRemoveAssociationsMixin<User, string>;
 }
 
 // attach all the metadata to the model

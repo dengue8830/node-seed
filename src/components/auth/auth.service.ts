@@ -11,33 +11,33 @@ import { RequestHandlerParams } from 'express-serve-static-core';
  * Manages all the auth behavior.
  */
 class AuthService {
-    /**
-     * Initialize the strategy.
-     * This breaks the no mix layers rule but its necesary
-     * for encapsulate the initialization logic, becaouse now
-     * is passport, tomorrow could be another. We priorize the
-     * encapsulation over no mix layer.
-     *
-     * @param app Express app
-     */
-    init(app: Application) {
-        app.use(passport.initialize());
+  /**
+   * Initialize the strategy.
+   * This breaks the no mix layers rule but its necesary
+   * for encapsulate the initialization logic, becaouse now
+   * is passport, tomorrow could be another. We priorize the
+   * encapsulation over no mix layer.
+   *
+   * @param app Express app
+   */
+  init(app: Application) {
+    app.use(passport.initialize());
 
-        passport.use(new Strategy({
-            secretOrKey: config.getJwtSecret(),
-            jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
-        }, (payload: any, done: VerifiedCallback) => done(undefined, payload)));
-    }
+    passport.use(new Strategy({
+      secretOrKey: config.getJwtSecret(),
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken()
+    }, (payload: any, done: VerifiedCallback) => done(undefined, payload)));
+  }
 
-    /**
-     * Gets the auth middleware for a basic authentication,
-     * that is check that the token is valid.
-     */
-    getBasicAuthMdl(): RequestHandlerParams {
-        // ejwt({ secret: config.getJwtSecret() })
-        // session: false prevents the declaration of serializeUser on passport initialization
-        return passport.authenticate('jwt', { session: false });
-    }
+  /**
+   * Gets the auth middleware for a basic authentication,
+   * that is check that the token is valid.
+   */
+  getBasicAuthMdl(): RequestHandlerParams {
+    // ejwt({ secret: config.getJwtSecret() })
+    // session: false prevents the declaration of serializeUser on passport initialization
+    return passport.authenticate('jwt', { session: false });
+  }
 }
 
 export default new AuthService();

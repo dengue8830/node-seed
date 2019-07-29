@@ -1,4 +1,4 @@
-import errorHandler from  './error.handler';
+import errorHandler from './error.handler';
 import { Request, Response, NextFunction } from 'express';
 
 /**
@@ -9,6 +9,6 @@ import { Request, Response, NextFunction } from 'express';
  * @param next The next function
  */
 export function errorHandlerMdl(error: any, req: Request, res: Response, next: NextFunction): void {
-    // This middleware handles all kind of errors, not only 500
-    res.status(error.status || 500).json({error: errorHandler.handleError(error)});
+  // This middleware handles all kind of errors, not only 500
+  res.status(error.status || 500).json({ error: errorHandler.handleError(error) });
 }

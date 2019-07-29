@@ -15,54 +15,54 @@ import * as Sequelize from 'sequelize';
  */
 class Config {
 
-    /**
-     * Gets the value corresponding to the given key.
-     * It's preferable to write a custom method.
-     * @param key String to get the de value
-     */
-    get(key: string): any {
-        return config.get(key);
-    }
+  /**
+   * Gets the value corresponding to the given key.
+   * It's preferable to write a custom method.
+   * @param key String to get the de value
+   */
+  get(key: string): any {
+    return config.get(key);
+  }
 
-    getJwtSecret(): any {
-        return this.get('jwtSecret');
-    }
+  getJwtSecret(): any {
+    return this.get('jwtSecret');
+  }
 
-    getEmailServerUser(): string {
-        return this.get('emailServerUser');
-    }
+  getEmailServerUser(): string {
+    return this.get('emailServerUser');
+  }
 
-    getEmailServerPass(): string {
-        return this.get('emailServerPass');
-    }
+  getEmailServerPass(): string {
+    return this.get('emailServerPass');
+  }
 
-    getExampleLockFileName(): string {
-        return this.get('exampleLockfileName');
-    }
+  getExampleLockFileName(): string {
+    return this.get('exampleLockfileName');
+  }
 
-    getPkDefinition(): { type: any, defaultValue: any, primaryKey: boolean } {
-        return {
-            type: Sequelize.UUID,
-            defaultValue: Sequelize.UUIDV1,
-            primaryKey: true
-        };
-    }
+  getPkDefinition(): { type: any, defaultValue: any, primaryKey: boolean } {
+    return {
+      type: Sequelize.UUID,
+      defaultValue: Sequelize.UUIDV1,
+      primaryKey: true
+    };
+  }
 
-    getBd(): { database: string, username: string, password: string } {
-      return this.get('bd');
-    }
+  getBd(): { database: string, username: string, password: string } {
+    return this.get('bd');
+  }
 
-    getImageServer(): string {
-      return this.get('imageServer');
-    }
+  getImageServer(): string {
+    return this.get('imageServer');
+  }
 
-    getUploadFolder(): string {
-      return this.get('uploads.folder');
-    }
+  getUploadFolder(): string {
+    return this.get('uploads.folder');
+  }
 
-    getFullUploadPath(): string {
-      return this.getImageServer() + '/' + this.getUploadFolder();
-    }
+  getFullUploadPath(): string {
+    return this.getImageServer() + '/' + this.getUploadFolder();
+  }
 }
 
 export default new Config();
