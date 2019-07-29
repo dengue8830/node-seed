@@ -1,5 +1,5 @@
 import { Application } from 'express';
-import authApis from '../components/auth/authApis';
+import authApis from '../components/auth/auth.apis';
 import userApis from '../components/user/userApis';
 import chatApis from '../components/chatt/chatApis';
 

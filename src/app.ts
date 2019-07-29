@@ -1,8 +1,8 @@
 import * as express from 'express';
 import { Request, Response, Application, NextFunction } from 'express';
-import { errorHandlerMdl } from './common/errorHandlerMdl';
+import { errorHandlerMdl } from './common/error.handler.mdl';
 import apisRoutesLoader from './common/apisRoutesLoader';
-import authService from './components/auth/authService';
+import authService from './components/auth/auth.service';
 import { LockFile } from './common/utils/lockfile';
 import { logger } from './common/logger';
 import socket from './components/chatt/socket';

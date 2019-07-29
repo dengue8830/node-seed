@@ -31,7 +31,9 @@ router.get('/secret/syncforce', async (req: Request, res: Response, next: NextFu
     }
   });
   const group = await Group.create({ name: 'g1' });
-  await user.setGroup(group);
+  if (user) {
+    await user.setGroup(group);
+  }
   // user.groupId = group.id;
   // await user.save();
   // await user.createGroup({ name: 'g1' });

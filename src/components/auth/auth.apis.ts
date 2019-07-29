@@ -4,7 +4,7 @@
 
 import { Request, Response, Application, NextFunction, Router } from 'express';
 import * as jwt from 'jsonwebtoken';
-import authService from '../auth/authService';
+import authService from './auth.service';
 import config from '../../common/config';
 
 const router = Router();
