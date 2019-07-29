@@ -21,15 +21,15 @@ export default class App {
   async init(server?: Server) {
     // An array of promises to do the async work
     const promises: Promise<any>[] = [];
-    // Remove this line and his import if you won't use sockets
-    socket.init(server);
-    // Uncomment this lines to enable CORS
-    // this.app.use(function (req, res, next) {
-    //     res.header('Access-Control-Allow-Origin', '*'); // specific domains are recomended
-    //     res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, authorization');
-    //     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-    //     next();
-    // });
+    // Uncomment to use sockets
+    // socket.init(server);
+    // CORS
+    this.app.use(function (req, res, next) {
+        res.header('Access-Control-Allow-Origin', '*'); // specific domains are recomended
+        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, authorization');
+        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+        next();
+    });
     this.app.use(helmet({
       // until we use https
       hsts: false
