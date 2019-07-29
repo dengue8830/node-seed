@@ -4,10 +4,11 @@
         "target": "es6",
         "sourceMap": true,
         "outDir": "dist",
-        "noImplicitAny": true,
+        "noImplicitAny": false,
         "experimentalDecorators": true,
         "baseUrl": ".",
         "resolveJsonModule": true,
+        "strictNullChecks": true,
         "paths": {
             "*": [
                 "node_modules/*",
