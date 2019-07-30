@@ -11,7 +11,7 @@ import { Server } from 'http';
 const bodyParser = require('body-parser');
 const helmet = require('helmet');
 
-export default class App {
+export class App {
   private app: Application;
 
   constructor() {

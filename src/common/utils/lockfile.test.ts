@@ -1,4 +1,4 @@
-import App from '../../app';
+import { App } from '../../app';
 import * as fs from 'fs-extra';
 import { config } from '../../common/config';
 import { LockFile } from './lockfile';

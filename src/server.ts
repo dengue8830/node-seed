@@ -1,4 +1,4 @@
-import App from './app';
+import { App } from './app';
 import { logger } from './common/logger';
 
 // Como hacer para tener varias instancias de app y socket con pm2?
