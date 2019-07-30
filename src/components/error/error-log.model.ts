@@ -1,5 +1,5 @@
 import { DataTypes, Model } from 'sequelize';
-import config from '../../common/config';
+import { config } from '../../common/config';
 import sequelize from '../../common/connection';
 
 export interface IErrorLogAttrs {

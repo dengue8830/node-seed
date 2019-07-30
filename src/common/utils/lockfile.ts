@@ -1,6 +1,6 @@
 import * as lockFile from 'lockfile';
 import { Options } from 'lockfile';
-import config from '../../common/config';
+import { config } from '../../common/config';
 import * as fs from 'fs-extra';
 
 // Tiene que ir en ./components porque el correspondiente test tiene que ir ahi.

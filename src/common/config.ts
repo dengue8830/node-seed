@@ -1,4 +1,4 @@
-import * as config from 'config';
+import * as _config from 'config';
 import * as Sequelize from 'sequelize';
 /**
  * Wraps the config logic. Someday we may want to change the lib.
@@ -21,7 +21,7 @@ class Config {
    * @param key String to get the de value
    */
   get(key: string): any {
-    return config.get(key);
+    return _config.get(key);
   }
 
   getJwtSecret(): any {
@@ -65,4 +65,4 @@ class Config {
   }
 }
 
-export default new Config();
+export const config = new Config();

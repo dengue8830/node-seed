@@ -13,7 +13,7 @@ import {
   Model,
 } from 'sequelize';
 import sequelize from '../../common/connection';
-import config from '../../common/config';
+import { config } from '../../common/config';
 
 export class Group extends Model {
   public id: string;

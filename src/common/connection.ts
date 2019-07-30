@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 import { logger } from './logger';
 import * as sqlFormatter from 'sql-formatter';
-import config from './config';
+import { config } from './config';
 
 const bd = config.getBd();
 

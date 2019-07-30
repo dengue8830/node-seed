@@ -1,6 +1,6 @@
 import App from '../../app';
 import * as fs from 'fs-extra';
-import config from '../../common/config';
+import { config } from '../../common/config';
 import { LockFile } from './lockfile';
 
 // Tiene que ir en ./components porque sino la tarea de test de package.json toma solo

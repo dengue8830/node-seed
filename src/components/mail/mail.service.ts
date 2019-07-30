@@ -3,7 +3,7 @@ import { Transporter } from 'nodemailer';
 import { MailOptions } from 'nodemailer/lib/stream-transport';
 import { promisify } from 'util';
 import * as ejs from 'ejs';
-import config from '../../common/config';
+import { config } from '../../common/config';
 // import { Mail } from 'nodemailer';
 
 interface TemplateMail {

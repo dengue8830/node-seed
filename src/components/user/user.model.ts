@@ -9,7 +9,7 @@ import {
 } from 'sequelize';
 
 import sequelize from '../../common/connection';
-import config from '../../common/config';
+import { config } from '../../common/config';
 import { logger } from '../../common/logger';
 
 export class User extends Model {
