@@ -1,27 +1,33 @@
 import {
-  BelongsToCreateAssociationMixin,
-  BelongsToGetAssociationMixin,
-  BelongsToSetAssociationMixin,
   DataTypes,
-  FindOptions,
-  Model,
-  CreateOptions,
+  Model
 } from 'sequelize';
 
 import { sequelize } from '../../common/connection';
 import { config } from '../../common/config';
-import { logger } from '../../common/logger';
 
-export class User extends Model {
-  id: string;
-  username: string;
-  email: string;
-  firstName: string;
-  lastName?: string;
-  createdAt?: Date;
-  updatedAt?: Date;
+export interface IUser {
+  id: string
+  username: string
+  email: string
+  firstName: string
+  lastName?: string
+  createdAt?: Date
+  updatedAt?: Date
 
-  userKey?: UserKey;
+  userKey?: IUserKey
+}
+
+export class User extends Model implements IUser {
+  id: string
+  username: string
+  email: string
+  firstName: string
+  lastName?: string
+  createdAt?: Date
+  updatedAt?: Date
+
+  userKey?: UserKey
 }
 
 User.init(
@@ -42,6 +48,6 @@ User.init(
 
 // associate
 // it is important to import _after_ the model above is already exported so the circular reference works.
-import { UserKey } from './user-key.model';
+import { UserKey, IUserKey } from './user-key.model';
 
 User.hasOne(UserKey, { as: 'userKey', foreignKey: 'userId', onDelete: 'CASCADE' });
