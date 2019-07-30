@@ -5,7 +5,7 @@ import { apisRoutesLoader } from './common/apis-routes-loader';
 import { authService } from './components/auth/auth.service';
 import { LockFile } from './common/utils/lockfile';
 import { logger } from './common/logger';
-import socket from './components/chatt/socket';
+import { socket } from './components/chatt/socket';
 import { Server } from 'http';
 
 const bodyParser = require('body-parser');

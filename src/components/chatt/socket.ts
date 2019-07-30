@@ -63,4 +63,4 @@ class Socket {
   }
 }
 
-export default new Socket();
+export const socket = new Socket();

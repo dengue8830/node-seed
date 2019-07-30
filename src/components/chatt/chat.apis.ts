@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction, Router } from 'express';
-import socket from './socket';
+import { socket } from './socket';
 import { logger } from '../../common/logger';
 import { asyncMdl } from '../../common/async.mdl';
 
