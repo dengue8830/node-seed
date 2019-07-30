@@ -16,7 +16,7 @@ const router = Router();
  * Client request a token to operate on protected apis.
  * Changes this with your login logic.
  */
-router.get('/api/users/v1', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
+router.get('/apis/v1/users', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
   const users = await User.findAll({ include: [{ all: true }] });
   res.json({ users });
 }));

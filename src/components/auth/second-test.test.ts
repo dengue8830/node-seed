@@ -4,7 +4,7 @@ http.setBaseUrl(`http://localhost:${server.address().port}`);
 
 describe('server instance doesnt throw "address already in use" problem', () => {
   test('gets another token', async () => {
-    const res = await http.get('/api/v1/token');
+    const res = await http.get('/apis/v1/token');
     expect(res.data).toHaveProperty('token');
   });
 

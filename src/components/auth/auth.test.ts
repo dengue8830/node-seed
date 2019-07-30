@@ -7,14 +7,14 @@ describe('auth', () => {
     let token: string;
 
     test('gets a token', async () => {
-      const res = await http.get('/api/v1/token');
+      const res = await http.get('/apis/v1/token');
       expect(res.data).toHaveProperty('token');
       token = res.data.token;
     });
 
     test('use the token to acces to a protected api', async () => {
       http.setCredentials(token);
-      const res = await http.get('/api/v1/protected');
+      const res = await http.get('/apis/v1/protected');
       expect(res.data).toHaveProperty('status');
       expect(res.data.status).toEqual('listorti');
     });

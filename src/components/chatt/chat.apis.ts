@@ -5,7 +5,7 @@ import { asyncMdl } from '../../common/async.mdl';
 
 const router = Router();
 
-router.get('/api/chat/v1', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
+router.get('/apis/v1/chat', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
   logger.info(`por api ${req.query.message}`);
   socket.sendMessage(req.query.message);
   res.json({ status: 'ok' });
