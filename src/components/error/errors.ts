@@ -14,7 +14,7 @@ export enum ErrorsAPI {
   NoSenseParams = 'NoSenseParams',
   UserWithoutEmail = 'UserWithoutEmail',
   UnkownUser = 'UnkownUser',
-  UserWithOutKey = 'UserWithOutKey'
+  UserWithOutPass = 'UserWithOutPass'
 }
 
 /**

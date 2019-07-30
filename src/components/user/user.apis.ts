@@ -1,13 +1,9 @@
-/**
- * Component that handles token generation and related stuffs (login, logout, etc.)
- */
+// Example api to run tests, delete this when you clone it.
 
 import { Request, Response, NextFunction, Router } from 'express';
 import { User } from './user.model';
 import { sequelize } from '../../common/connection';
 import { Op } from 'sequelize';
-import { Group } from '../group/group.model';
-import { logger } from '../../common/logger';
 import { asyncMdl } from '../../common/async.mdl';
 
 const router = Router();
@@ -24,23 +20,13 @@ router.get('/apis/v1/users', asyncMdl(async (req: Request, res: Response, next: 
 router.get('/secret/syncforce', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
   await sequelize.sync({ force: true });
   await User.create({ email: 'xxx' });
-  const user = await User.findOne({
+  await User.findOne({
     where: {
       email: {
         [Op.or]: ['xxx', 'yyy']
       }
     }
   });
-  const group = await Group.create({ name: 'g1' });
-  if (user) {
-    await user.setGroup(group);
-  }
-  // user.groupId = group.id;
-  // await user.save();
-  // await user.createGroup({ name: 'g1' });
-  const users = await group.getUsers();
-  logger.debug(`cantidad ${users.length}`);
-  // await user.destroy();
   res.json({ status: 'ok' });
 }));
 
