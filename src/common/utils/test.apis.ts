@@ -2,6 +2,7 @@ import { config } from './../config';
 import { authService } from './../../components/auth/auth.service';
 import { Request, Response, NextFunction, Router } from 'express';
 import * as jwt from 'jsonwebtoken';
+import { sessionUtil } from './session.util';
 
 const router = Router();
 
@@ -15,14 +16,16 @@ router.get('/apis/test/rootToken', (req: Request, res: Response, next: NextFunct
   return res.json({ status: 'ok', token });
 });
 
-router.get('/apis/test/protectedGuest', authService.getCheckRolesMdl({ checkGuest: true }), (req: Request, res: Response, next: NextFunction) => {
+router.get('/apis/test/protectedGuest', authService.getCheckRolesMdl({ checkGuest: true, checkRoot: true }), (req: Request, res: Response, next: NextFunction) => {
   // The token data is in req.user -> console.log(req.user);
-  res.json({ status: 'ok' });
+  const session = sessionUtil.parseRequest(req);
+  res.json({ status: 'ok', session });
 });
 
 router.get('/apis/test/protectedRoot', authService.getCheckRolesMdl({ checkRoot: true }), (req: Request, res: Response, next: NextFunction) => {
   // The token data is in req.user -> console.log(req.user);
-  res.json({ status: 'ok' });
+  const session = sessionUtil.parseRequest(req);
+  res.json({ status: 'ok', session });
 });
 
 export const testApis = router;

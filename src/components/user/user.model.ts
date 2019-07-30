@@ -25,6 +25,10 @@ export class User extends Model implements IUser {
   email: string
   firstName: string
   lastName?: string
+  /**
+   * #add-roles-here
+   * This roles are used in session.ts and auth.service.ts
+   */
   isRoot: boolean
   createdAt?: Date
   updatedAt?: Date
