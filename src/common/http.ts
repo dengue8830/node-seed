@@ -14,17 +14,17 @@ class Http {
     this.instance = axios.create(); // { timeout: 5000 }
   }
 
-  setUrlBase(baseUrl: string) {
+  setBaseUrl(baseUrl: string) {
     this.instance.defaults.baseURL = baseUrl;
   }
 
-  setCredenciales(token: string) {
+  setCredentials(token: string) {
     this.token = token;
     this.instance.defaults.headers.common.Authorization = 'bearer ' + token;
     // JWTUtils.parseJwt(resLogin.data.token).usuario.id
   }
 
-  clearCredenciales() {
+  clearCredentials() {
     this.instance.defaults.headers.common.Authorization = undefined;
   }
 
@@ -32,7 +32,7 @@ class Http {
     return this.token;
   }
 
-  private tratarRequest<T>(axiosPromise: AxiosPromise): Promise<IHttpResponse<T>> {
+  private processRequest<T>(axiosPromise: AxiosPromise): Promise<IHttpResponse<T>> {
     return new Promise((resolve, reject) => {
       axiosPromise.then(res => {
         resolve({ data: res.data });
@@ -43,30 +43,30 @@ class Http {
           method: error.config.method,
           response: error.request.responseText
         };
-        const causa = error.response && error.response.data && error.response.data.error;
-        reject(new BaseError(causa || ErrorsAPI.Unknown, extra));
+        const cause = error.response && error.response.data && error.response.data.error;
+        reject(new BaseError(cause || ErrorsAPI.Unknown, extra));
       });
     });
   }
 
   get<T = any>(url: string, config?: AxiosRequestConfig): Promise<IHttpResponse<T>> {
-    return this.tratarRequest<T>(this.instance.get(url, config));
+    return this.processRequest<T>(this.instance.get(url, config));
   }
 
   post<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<IHttpResponse<T>> {
-    return this.tratarRequest<T>(this.instance.post(url, data, config));
+    return this.processRequest<T>(this.instance.post(url, data, config));
   }
 
   put<T = any>(url: string, data?: any, config?: AxiosRequestConfig): Promise<IHttpResponse<T>> {
-    return this.tratarRequest<T>(this.instance.put(url, data, config));
+    return this.processRequest<T>(this.instance.put(url, data, config));
   }
 
   delete<T = any>(url: string, config?: AxiosRequestConfig): Promise<IHttpResponse<T>> {
-    return this.tratarRequest<T>(this.instance.delete(url, config));
+    return this.processRequest<T>(this.instance.delete(url, config));
   }
 
   head<T = any>(url: string, config?: AxiosRequestConfig): Promise<IHttpResponse<T>> {
-    return this.tratarRequest<T>(this.instance.head(url, config));
+    return this.processRequest<T>(this.instance.head(url, config));
   }
 
   async isConnected() {
