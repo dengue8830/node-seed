@@ -9,7 +9,7 @@ const router = Router();
 
 // No protegemos la api porque necesitamos capturar errors que pueden susceder en el splash
 // antes de obtener un token
-router.post('/apis/errorLogs/reportarError/v1', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
+router.post('/apis/v1/errorLogs/reportError', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
   const errorLog: IErrorLogAttrs = req.body;
   // Parseos por seguridad. Algunos valores para android son de un tipo y para ios de otro
   errorLog.buildNumber = errorLog.buildNumber ? errorLog.buildNumber.toString() : undefined;
