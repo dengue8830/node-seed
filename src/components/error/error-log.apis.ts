@@ -14,7 +14,7 @@ router.post('/apis/errorLogs/reportarError/v1', asyncMdl(async (req: Request, re
   // Parseos por seguridad. Algunos valores para android son de un tipo y para ios de otro
   errorLog.buildNumber = errorLog.buildNumber ? errorLog.buildNumber.toString() : undefined;
   // Nivel de bateria es un valor entre 0 y 1 y puede ser 0.788888
-  errorLog.nivelBateria = CommonUtil.exists(errorLog.nivelBateria) ? MathUtil.round(errorLog.nivelBateria!, 2) : undefined;
+  errorLog.batteryLevel = CommonUtil.exists(errorLog.batteryLevel) ? MathUtil.round(errorLog.batteryLevel!, 2) : undefined;
   logger.debug(errorLog);
   await ErrorLog.create(errorLog);
   res.json({ status: 'ok' });

@@ -3,80 +3,89 @@ import config from '../../common/config';
 import sequelize from '../../common/connection';
 
 export interface IErrorLogAttrs {
-  // Es el codigo del error que asigna la app. Es para poder identificarlo facilmente
-  // cuando reporten un error con captura de pantalla
-  codigo?: string;
-  usuarioId?: string;
+  /**
+   * Human-readable-id. The main goal is identify the error that user has reported,
+   * with screenshot usually.
+   */
+  code?: string;
+  userId?: string;
   stacktrace?: string;
-  // Fatal si produjo un estado inconsistente y la app se tuvo que cerrar
+  // When an inconsistent state has produced in the app and it has to terminate itself.
   isFatal?: boolean;
-  // String que se coloca al hacer new Error('xxx')
-  mensaje?: string;
-  // Cualquier dato que sea util, por lo general algo representando el estado en el que se produjo el error
+  // The message of new Error('xxx')
+  message?: string;
+  // Any useful data that helps to resolve the issue. Usually some state related stuff.
   extra?: string;
-  // Datos extras que pueden ser utiles para resolver un problema
-  nivelAPI?: number;
-  // redondear antes de setear
-  // https://github.com/rebeccahughes/react-native-device-info#getbatterylevel
-  nivelBateria?: number;
-  marca?: string;
-  // parsear a string porque en ios es string y en android number  https://github.com/rebeccahughes/react-native-device-info#getbuildnumber
+  // Eg Android API 26
+  APIlevel?: number;
+  /**
+   * Round up before set
+   * https://github.com/rebeccahughes/react-native-device-info#getbatterylevel
+   */
+  batteryLevel?: number;
+  brand?: string;
+  /**
+   * Parse to string before because on ios is string and on android a number
+   * https://github.com/rebeccahughes/react-native-device-info#getbuildnumber
+   */
   buildNumber?: string;
-  operadora?: string;
-  codigoPais?: string;
+  carrier?: string;
+  // Eg ar
+  countryCode?: string;
   deviceId?: string;
-  idioma?: string;
-  fechaInstalacion?: Date;
-  // ip necesita permiso de wifistate
-  fechaActualizacion?: Date;
-  fabricante?: string;
-  memoriaMaxima?: number;
-  modelo?: string;
+  language?: string;
+  // Refeer to the app
+  installDate?: Date;
+  // Refeer to the app
+  updateDate?: Date;
+  manufacturer?: string;
+  maxMemory?: number;
+  model?: string;
   // https://github.com/rebeccahughes/react-native-device-info#getreadableversion
-  versionLegible?: string;
-  sistemaOperativo?: string;
-  versionSistemaOperativo?: string;
+  readableVersion?: string;
+  os?: string;
+  osVersion?: string;
   // https://github.com/rebeccahughes/react-native-device-info#gettimezone
-  zonaHoraria?: string;
+  timezone?: string;
   // https://github.com/rebeccahughes/react-native-device-info#getversion
-  versionAplicacion?: string;
+  appVersion?: string;
   is24hs?: boolean;
   isEmulador?: boolean;
   isTablet?: boolean;
 }
 
 export class ErrorLog extends Model implements IErrorLogAttrs {
-  usuarioId?: string;
+  userId?: string;
 }
 
 ErrorLog.init(
   {
     id: config.getPkDefinition(),
-    codigo: { type: DataTypes.STRING(50) },
-    usuarioId: { type: DataTypes.STRING },
+    codige: { type: DataTypes.STRING(50) },
+    userId: { type: DataTypes.STRING },
     stacktrace: { type: DataTypes.TEXT },
-    mensaje: { type: DataTypes.TEXT },
+    message: { type: DataTypes.TEXT },
     extra: { type: DataTypes.TEXT },
     isFatal: { type: DataTypes.BOOLEAN },
-    nivelAPI: { type: DataTypes.INTEGER },
-    nivelBateria: { type: DataTypes.FLOAT({ length: 3, decimals: 2 }) },
-    marca: { type: DataTypes.STRING(100) },
+    APIlevel: { type: DataTypes.INTEGER },
+    batteryLevel: { type: DataTypes.FLOAT({ length: 3, decimals: 2 }) },
+    brand: { type: DataTypes.STRING(100) },
     buildNumber: { type: DataTypes.STRING(10) },
-    operadora: { type: DataTypes.STRING(50) },
-    codigoPais: { type: DataTypes.STRING(50) },
+    carrier: { type: DataTypes.STRING(50) },
+    countryCode: { type: DataTypes.STRING(50) },
     deviceId: { type: DataTypes.STRING(50) },
-    idioma: { type: DataTypes.STRING(50) },
+    language: { type: DataTypes.STRING(50) },
     // Los mills tienen longitud 13 por si las porsias pongo 15
-    fechaInstalacion: { type: DataTypes.DATE },
-    fechaActualizacion: { type: DataTypes.DATE },
-    fabricante: { type: DataTypes.STRING(100) },
-    memoriaMaxima: { type: DataTypes.INTEGER },
-    modelo: { type: DataTypes.STRING(100) },
-    versionLegible: { type: DataTypes.STRING(30) },
-    sistemaOperativo: { type: DataTypes.STRING(30) },
-    versionSistemaOperativo: { type: DataTypes.STRING(30) },
-    zonaHoraria: { type: DataTypes.STRING(100) },
-    versionAplicacion: { type: DataTypes.STRING(30) },
+    installDate: { type: DataTypes.DATE },
+    updateDate: { type: DataTypes.DATE },
+    manufacturer: { type: DataTypes.STRING(100) },
+    maxMemory: { type: DataTypes.INTEGER },
+    model: { type: DataTypes.STRING(100) },
+    readableVersion: { type: DataTypes.STRING(30) },
+    os: { type: DataTypes.STRING(30) },
+    osVersion: { type: DataTypes.STRING(30) },
+    timezone: { type: DataTypes.STRING(100) },
+    appVersion: { type: DataTypes.STRING(30) },
     is24hs: { type: DataTypes.BOOLEAN },
     isEmulador: { type: DataTypes.BOOLEAN },
     isTablet: { type: DataTypes.BOOLEAN }
