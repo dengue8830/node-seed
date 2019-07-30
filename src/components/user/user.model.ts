@@ -8,7 +8,7 @@ import {
   CreateOptions,
 } from 'sequelize';
 
-import sequelize from '../../common/connection';
+import { sequelize } from '../../common/connection';
 import { config } from '../../common/config';
 import { logger } from '../../common/logger';
 

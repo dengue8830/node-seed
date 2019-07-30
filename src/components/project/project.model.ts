@@ -4,7 +4,7 @@ import {
   Model,
 } from 'sequelize';
 
-import sequelize from '../../common/connection';
+import { sequelize } from '../../common/connection';
 import { config } from '../../common/config';
 
 export class Project extends Model {

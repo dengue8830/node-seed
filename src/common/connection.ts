@@ -5,7 +5,7 @@ import { config } from './config';
 
 const bd = config.getBd();
 
-const sequelize = new Sequelize({
+export const sequelize = new Sequelize({
   operatorsAliases: false,
   host: 'localhost',
   dialect: 'mysql',
@@ -21,5 +21,3 @@ const sequelize = new Sequelize({
     idle: 10000
   }
 });
-
-export default sequelize;
