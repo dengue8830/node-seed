@@ -9,5 +9,6 @@ export const CommonUtil = {
   },
 
   // Checks if the environment is production.
-  isProd: process.env.NODE_ENV === 'production'
+  isProd: process.env.NODE_ENV === 'production',
+  isTest: process.env.NODE_ENV === 'test'
 }
