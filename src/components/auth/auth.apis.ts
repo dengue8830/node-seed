@@ -4,7 +4,7 @@
 
 import { Request, Response, Application, NextFunction, Router } from 'express';
 import * as jwt from 'jsonwebtoken';
-import authService from './auth.service';
+import { authService } from './auth.service';
 import config from '../../common/config';
 
 const router = Router();
@@ -27,4 +27,4 @@ router.get('/apis/v1/protected', authService.getBasicAuthMdl(), (req: Request, r
   res.json({ status: 'listorti' });
 });
 
-export default router;
+export const authApis = router;

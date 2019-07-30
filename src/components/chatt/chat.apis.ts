@@ -11,4 +11,4 @@ router.get('/apis/v1/chat', asyncMdl(async (req: Request, res: Response, next: N
   res.json({ status: 'ok' });
 }));
 
-export default router;
+export const chatApis = router;

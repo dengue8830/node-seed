@@ -44,4 +44,4 @@ router.get('/secret/syncforce', asyncMdl(async (req: Request, res: Response, nex
   res.json({ status: 'ok' });
 }));
 
-export default router;
+export const userApis = router;

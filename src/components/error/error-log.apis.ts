@@ -20,4 +20,4 @@ router.post('/apis/v1/errorLogs/reportError', asyncMdl(async (req: Request, res:
   res.json({ status: 'ok' });
 }));
 
-export default router;
+export const errorApis = router;
