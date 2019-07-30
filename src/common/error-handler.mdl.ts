@@ -1,4 +1,4 @@
-import errorHandler from './error-handler';
+import { errorHandler } from './error-handler';
 import { Request, Response, NextFunction } from 'express';
 
 /**
