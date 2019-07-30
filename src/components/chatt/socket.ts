@@ -1,7 +1,7 @@
 import * as socketio from 'socket.io';
 import { Server } from 'http';
 import { logger } from '../../common/logger';
-import server from '../../server';
+import { server } from '../../server';
 
 /**
  * Represents a socket server instance.

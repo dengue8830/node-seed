@@ -1,4 +1,4 @@
-import server from '../../server';
+import { server } from '../../server';
 import { http } from '../../common/http';
 http.setBaseUrl(`http://localhost:${server.address().port}`);
 
