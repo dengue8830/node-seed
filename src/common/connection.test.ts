@@ -1,6 +1,7 @@
 import { User } from '../components/user/user.model';
 import { sequelize } from './connection';
 
+// #delete-when-clone It's just to check the db access.
 describe('connection', () => {
   test('bd should be able to sync', async () => {
     await sequelize.sync({ force: true });

@@ -3,20 +3,29 @@ import { http } from '../../common/http';
 http.setBaseUrl(`http://localhost:${server.address().port}`);
 
 describe('auth', () => {
-  describe('token', () => {
+  describe('guest', () => {
     let token: string;
 
-    test('gets a token', async () => {
-      const res = await http.get('/apis/v1/token');
+    test('it should be able to get a guest token', async () => {
+      const res = await http.get('/apis/test/guestToken');
       expect(res.data).toHaveProperty('token');
       token = res.data.token;
     });
 
-    test('use the token to acces to a protected api', async () => {
+    test('guest token should be able to access to a protected api', async () => {
       http.setCredentials(token);
-      const res = await http.get('/apis/v1/protected');
-      expect(res.data).toHaveProperty('status');
-      expect(res.data.status).toEqual('listorti');
+      const res = await http.get('/apis/test/protectedGuest');
+      expect(res.data.status).toEqual('ok');
+    });
+
+    test('guest token shouldnt be able to access to an admin api', async () => {
+      try {
+        await http.get('/apis/test/protectedRoot');
+      } catch (error) {
+        expect(1).toEqual(1);
+        return;
+      }
+      expect(1).toEqual(2);
     });
   });
 

@@ -12,6 +12,7 @@ export interface IUser {
   email: string
   firstName: string
   lastName?: string
+  isRoot: boolean
   createdAt?: Date
   updatedAt?: Date
 
@@ -24,6 +25,7 @@ export class User extends Model implements IUser {
   email: string
   firstName: string
   lastName?: string
+  isRoot: boolean
   createdAt?: Date
   updatedAt?: Date
 
@@ -37,7 +39,7 @@ User.init(
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     email: DataTypes.STRING,
-    nro: { type: DataTypes.INTEGER({ length: 3 }), defaultValue: 0 }
+    isRoot: { type: DataTypes.BOOLEAN, allowNull: false, defaultValue: false },
   },
   {
     sequelize,

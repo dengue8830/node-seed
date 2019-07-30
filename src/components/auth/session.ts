@@ -2,7 +2,7 @@ import { Request } from 'express';
 
 export interface ISession {
   user: {
-    id: string,
+    id?: string,
     isRoot: boolean,
     isGuest: boolean
   }
@@ -10,7 +10,7 @@ export interface ISession {
 
 export class Session implements ISession {
   user: {
-    id: string,
+    id?: string,
     isRoot: boolean,
     isGuest: boolean
   }

@@ -1,3 +1,4 @@
+import { CommonUtil } from './utils/common.util';
 import { Sequelize, Op } from 'sequelize';
 import { logger } from './logger';
 import * as sqlFormatter from 'sql-formatter';
@@ -50,7 +51,9 @@ export const sequelize = new Sequelize({
   username: bd.username,
   password: bd.password,
   logging: (query: string) => {
-    logger.trace(sqlFormatter.format(query));
+    if (!CommonUtil.isTest) {
+      logger.trace(sqlFormatter.format(query));
+    }
   },
   pool: {
     max: 5,
