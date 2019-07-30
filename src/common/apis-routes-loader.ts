@@ -6,7 +6,7 @@ import { chatApis } from '../components/chatt/chat.apis';
 /**
  * Loads all the apis
  */
-export default (app: Application): void => {
+export function apisRoutesLoader(app: Application): void {
   app.use(authApis);
   app.use(userApis);
   app.use(chatApis);
