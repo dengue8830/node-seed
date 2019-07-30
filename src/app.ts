@@ -2,7 +2,7 @@ import * as express from 'express';
 import { Request, Response, Application, NextFunction } from 'express';
 import { errorHandlerMdl } from './common/error-handler.mdl';
 import apisRoutesLoader from './common/apis-routes-loader';
-import authService from './components/auth/auth.service';
+import { authService } from './components/auth/auth.service';
 import { LockFile } from './common/utils/lockfile';
 import { logger } from './common/logger';
 import socket from './components/chatt/socket';
@@ -25,10 +25,10 @@ export default class App {
     // socket.init(server);
     // CORS
     this.app.use(function (req, res, next) {
-        res.header('Access-Control-Allow-Origin', '*'); // specific domains are recomended
-        res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, authorization');
-        res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-        next();
+      res.header('Access-Control-Allow-Origin', '*'); // specific domains are recomended
+      res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, authorization');
+      res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+      next();
     });
     this.app.use('/public', express.static('public'));
     this.app.use(helmet({
