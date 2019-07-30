@@ -8,6 +8,7 @@ import sequelize from '../../common/connection';
 import { Op } from 'sequelize';
 import { Group } from '../group/group.model';
 import { logger } from '../../common/logger';
+import { asyncMdl } from '../../common/async.mdl';
 
 const router = Router();
 
@@ -15,12 +16,12 @@ const router = Router();
  * Client request a token to operate on protected apis.
  * Changes this with your login logic.
  */
-router.get('/api/users/v1', async (req: Request, res: Response, next: NextFunction) => {
+router.get('/api/users/v1', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
   const users = await User.findAll({ include: [{ all: true }] });
   res.json({ users });
-});
+}));
 
-router.get('/secret/syncforce', async (req: Request, res: Response, next: NextFunction) => {
+router.get('/secret/syncforce', asyncMdl(async (req: Request, res: Response, next: NextFunction) => {
   await sequelize.sync({ force: true });
   await User.create({ email: 'xxx' });
   const user = await User.findOne({
@@ -41,6 +42,6 @@ router.get('/secret/syncforce', async (req: Request, res: Response, next: NextFu
   logger.debug(`cantidad ${users.length}`);
   // await user.destroy();
   res.json({ status: 'ok' });
-});
+}));
 
 export default router;
