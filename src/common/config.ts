@@ -1,11 +1,9 @@
 /**
- * WARNING: Lib request to use this on the very first line of your project or set it in the command line.
- * Because this config() build and set the env variables from the correct env file.
+ * WARNING: Lib request to use this on the very first line of your project or set it in the command line
+ * just because this config() build and set the env variables from the correct env file.
  * https://www.npmjs.com/package/dotenv-flow#usage
  *
- * As we never access to the 'process' global variable directly to get variables defined in
- * a env file we can import here. If you want to access env files variables from outside this class
- * put this line it in the first line of server.ts file.
+ * So config.ts is the first import on server.ts just to avoid possible circular references problems.
  * This way we can still encapsulating all the config logic in this file.
  */
 require('dotenv-flow').config({ path: __dirname + '../../../config' });
@@ -20,6 +18,10 @@ import * as Sequelize from 'sequelize';
  * Otherwise we should copy the config dir to dist folder
  */
 class Config {
+
+  getPort(): string {
+    return process.env.PORT || '8080';
+  }
 
   getJwtSecret(): any {
     return process.env.JWT_SECRET;

@@ -1,3 +1,5 @@
+// Config is the very first import on the project, check this one for more info.
+import { config } from './common/config';
 import { App } from './app';
 import { logger } from './common/logger';
 
@@ -6,7 +8,7 @@ import { logger } from './common/logger';
 // https://github.com/socketio/socket.io/issues/1942#issuecomment-82352072
 // https://github.com/Unitech/PM2/issues/1510
 const app = new App();
-const port = process.env.NODE_ENV === 'production' ? 8080 : 8080;
+const port = config.getPort();
 // const port = 808 + process.env.NODE_APP_INSTANCE;
 // Splitting this from app.ts we can eg: create multiples servers on diferent ports with the same app, or something else
 export const server = app.getExpressApp().listen(port, () => {
