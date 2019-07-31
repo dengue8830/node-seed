@@ -1,0 +1,22 @@
+version: '3'
+services: 
+  mysql:
+    container_name: mysql
+    build: ./bin/mysql/
+    expose: 
+      - "3306"
+    volumes:
+      - /docker/mysql/data:/data/db
+     
+  app:
+    container_name: nodeseed
+    build: .
+    restart: always
+    environment: 
+      NODE_ENV: production
+    depends_on: 
+      - mysql
+    ports: 
+      - 8080:8080
+    links: 
+      - mysql 
