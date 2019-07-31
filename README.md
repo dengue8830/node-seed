@@ -14,6 +14,7 @@ grant all privileges on nodeseed_dev.* to 'nodeseed_dev'@'localhost';
 npm start
 
 # Deploy
+## TODO: Build generates a dist folder, and we need node_modules to run the project but it would be annoying copy that to dist, so you have to clone the project on the server && npm install && (just first time) copy .env.production to /server-folder/config
 npm run deploy
 
 # Run all tests
