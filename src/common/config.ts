@@ -1,13 +1,19 @@
-import * as _config from 'config';
+/**
+ * WARNING: Lib request to use this on the very first line of your project or set it in the command line.
+ * Because this config() build and set the env variables from the correct env file.
+ * https://www.npmjs.com/package/dotenv-flow#usage
+ *
+ * As we never access to the 'process' global variable directly we can import here because
+ * is the only place where we ask for env and config variables, otherwise you have to
+ * put it in the first line of server.ts file. This way we can still encapsulating all
+ * the config logic in this file.
+ */
+require('dotenv-flow').config({ path: __dirname + '../../../config' });
 import * as Sequelize from 'sequelize';
 /**
  * Wraps the config logic. Someday we may want to change the lib.
  *
- * https://www.npmjs.com/package/config
- *
- * We use 3 files, a default.json that holds the default config
- * and the development.json and production.json that overrides the default
- * config according to the NODE_ENV flag.
+ * Env file will be used based on NODE_ENV.
  *
  * Hold the config dir in /server/config/ and not in /config (root) because
  * we need it to be copied to dist folder.
@@ -15,29 +21,20 @@ import * as Sequelize from 'sequelize';
  */
 class Config {
 
-  /**
-   * Gets the value corresponding to the given key.
-   * It's preferable to write a custom method.
-   * @param key String to get the de value
-   */
-  get(key: string): any {
-    return _config.get(key);
-  }
-
   getJwtSecret(): any {
-    return this.get('jwtSecret');
+    return process.env.JWT_SECRET;
   }
 
   getEmailServerUser(): string {
-    return this.get('emailServerUser');
+    return process.env.EMAIL_SERVER_USER!;
   }
 
   getEmailServerPass(): string {
-    return this.get('emailServerPass');
+    return process.env.EMAIL_SERVER_PASS!;
   }
 
   getExampleLockFileName(): string {
-    return this.get('exampleLockfileName');
+    return process.env.EXAMPLE_LOCKFILE_NAME!;
   }
 
   getPkDefinition(): { type: any, defaultValue: any, primaryKey: boolean } {
@@ -49,15 +46,19 @@ class Config {
   }
 
   getBd(): { database: string, username: string, password: string } {
-    return this.get('bd');
+    return {
+      database: process.env.DB_NAME!,
+      username: process.env.DB_USERNAME!,
+      password: process.env.DB_PASS!
+    };
   }
 
   getImageServer(): string {
-    return this.get('imageServer');
+    return process.env.IMAGE_SERVER!;
   }
 
   getUploadFolder(): string {
-    return this.get('uploads.folder');
+    return process.env.UPLOAD_FOLDER!;
   }
 
   getFullUploadPath(): string {
