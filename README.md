@@ -34,7 +34,6 @@ open the target file > open debug left panel > select test current file > run bu
 - import json
 `import * as myjson from './my.json';`
 - Auth with jwt and passport
-- Conection with socket-io
 - Implementation of a working mail service
 - Integration with sequelize as orm
 - Example of own types definition (typescript)

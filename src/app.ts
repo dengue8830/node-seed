@@ -5,7 +5,6 @@ import { apisRoutesLoader } from './common/apis-routes-loader';
 import { authService } from './components/auth/auth.service';
 import { LockFile } from './common/utils/lockfile';
 import { logger } from './common/logger';
-import { socket } from './components/chatt/socket';
 import { Server } from 'http';
 
 const bodyParser = require('body-parser');
@@ -21,7 +20,7 @@ export class App {
   async init(server?: Server) {
     // An array of promises to do the async work
     const promises: Promise<any>[] = [];
-    // Uncomment to use sockets
+    // Uncomment to use sockets and add class https://gist.github.com/dengue8830/33d1fec446e1a87bc3f9e215951d4279
     // socket.init(server);
     // CORS
     this.app.use(function (req, res, next) {
