@@ -1,4 +1,4 @@
-// Config is the very first import on the project, check this one for more info.
+// Config should be the very first import on the project, check this one for more info.
 import { config } from './common/config';
 import { App } from './app';
 import { logger } from './common/logger';

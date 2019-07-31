@@ -3,8 +3,8 @@
  * just because this config() build and set the env variables from the correct env file.
  * https://www.npmjs.com/package/dotenv-flow#usage
  *
- * So config.ts is the first import on server.ts just to avoid possible circular references problems.
- * This way we can still encapsulating all the config logic in this file.
+ * So config.ts is the first import on server.ts just to make the dotenv-flow import here and keep the config logic in this file.
+ * If you have some circular references problem you can move this line to server.ts.
  */
 require('dotenv-flow').config({ path: __dirname + '../../../config' });
 import * as Sequelize from 'sequelize';
