@@ -3,10 +3,10 @@
  * Because this config() build and set the env variables from the correct env file.
  * https://www.npmjs.com/package/dotenv-flow#usage
  *
- * As we never access to the 'process' global variable directly we can import here because
- * is the only place where we ask for env and config variables, otherwise you have to
- * put it in the first line of server.ts file. This way we can still encapsulating all
- * the config logic in this file.
+ * As we never access to the 'process' global variable directly to get variables defined in
+ * a env file we can import here. If you want to access env files variables from outside this class
+ * put this line it in the first line of server.ts file.
+ * This way we can still encapsulating all the config logic in this file.
  */
 require('dotenv-flow').config({ path: __dirname + '../../../config' });
 import * as Sequelize from 'sequelize';
