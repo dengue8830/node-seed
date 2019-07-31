@@ -7,8 +7,8 @@
     "emailServerPass": "thePass",
     "exampleLockfileName": "exampleLockfileName",
     "bd": {
-      "database": "nodeseed",
-      "username": "nodeseed",
+      "database": "nodeseed_test",
+      "username": "nodeseed_test",
       "password": "nodeseed"
     }
 }

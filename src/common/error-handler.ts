@@ -23,4 +23,4 @@ class ErrorHandler {
   }
 }
 
-export default new ErrorHandler();
+export const errorHandler = new ErrorHandler();

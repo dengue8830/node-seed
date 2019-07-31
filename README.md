@@ -2,9 +2,13 @@
 NodeJS project seed with best practices based on https://github.com/i0natan/nodebestpractices + preferred tools and configs
 
 # BD
-create database nodeseed;
-create user 'nodeseed'@'localhost' identified by 'nodeseed';
-grant all privileges on nodeseed.* to 'nodeseed'@'localhost';
+create database nodeseed_test;
+create user 'nodeseed_test'@'localhost' identified by 'nodeseed';
+grant all privileges on nodeseed_test.* to 'nodeseed_test'@'localhost';
+
+create database nodeseed_dev;
+create user 'nodeseed_dev'@'localhost' identified by 'nodeseed';
+grant all privileges on nodeseed_dev.* to 'nodeseed_dev'@'localhost';
 
 # Run app in dev mode
 npm start
@@ -26,6 +30,8 @@ open the target file > open debug left panel > select test current file > run bu
 
 (Read app.ts to see, remove or customize the features)
 
+- import json
+`import * as myjson from './my.json';`
 - Auth with jwt and passport
 - Conection with socket-io
 - Implementation of a working mail service
