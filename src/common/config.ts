@@ -8,6 +8,17 @@
  */
 require('dotenv-flow').config({ path: __dirname + '../../../config' });
 import * as Sequelize from 'sequelize';
+
+interface IDatabaseConnection {
+  database: string,
+  username: string,
+  password: string,
+  host: string,
+  port: number,
+  dialect: any
+}
+
+
 /**
  * Wraps the config logic. Someday we may want to change the lib.
  *
@@ -47,11 +58,14 @@ class Config {
     };
   }
 
-  getBd(): { database: string, username: string, password: string } {
+  getBd(): IDatabaseConnection {
     return {
       database: process.env.DB_NAME!,
       username: process.env.DB_USERNAME!,
-      password: process.env.DB_PASS!
+      password: process.env.DB_PASS!,
+      host: process.env.DB_HOST!,
+      port: Number(process.env.DB_PORT),
+      dialect: process.env.DB_DIALECT
     };
   }
 

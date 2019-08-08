@@ -40,7 +40,7 @@ const operatorsAliases = {
   $any: Op.any,
   $all: Op.all,
   $values: Op.values,
-  $col: Op.col
+  $col: Op.co
 };
 
 export const sequelize = new Sequelize({
