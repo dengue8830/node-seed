@@ -60,7 +60,7 @@
     "nodemailer": "4.6.8",
     "passport": "0.4.0",
     "passport-jwt": "4.0.0",
-    "sequelize": "5.12.2",
+    "sequelize": "5.15.1",
     "sql-formatter": "2.3.2",
     "winston": "3.2.1"
   }
