@@ -57,7 +57,7 @@
     "lockfile": "1.0.4",
     "moment-timezone": "0.5.26",
     "mysql2": "1.6.5",
-    "nodemailer": "4.6.8",
+    "nodemailer": "6.4.16",
     "passport": "0.4.0",
     "passport-jwt": "4.0.0",
     "sequelize": "5.15.1",
