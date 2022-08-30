@@ -55,7 +55,7 @@
     "joi": "14.0.6",
     "jsonwebtoken": "8.5.1",
     "lockfile": "1.0.4",
-    "moment-timezone": "0.5.26",
+    "moment-timezone": "0.5.35",
     "mysql2": "1.6.5",
     "nodemailer": "4.6.8",
     "passport": "0.4.0",
